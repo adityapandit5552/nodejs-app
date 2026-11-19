@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b1020">
+    <title>Chromify — Advanced Color Studio</title>
+    <meta name="description" content="Create beautiful color palettes, gradients and color combinations with Chromify Color Studio.">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/app.js" defer></script>
+</head>
+<body>
+
+    <header class="topbar">
+        <a href="#" class="brand">
+            <span class="brand-icon">◈</span>
+            <span>chromify<span class="brand-dot">.</span></span>
+        </a>
+
+        <nav class="navigation">
+            <a href="#palette" class="active">Palette</a>
+            <a href="#gradient">Gradient</a>
+            <a href="#tools">Color Tools</a>
+        </nav>
+
+        <div class="header-right">
+            <span class="status-indicator"></span>
+            <span class="header-status">Color Studio</span>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="hero">
+            <div class="hero-content">
+                <span class="eyebrow">YOUR CREATIVE COLOR WORKSPACE</span>
+                <h1>Colors that make<br>an <span>impression.</span></h1>
+                <p>Discover beautiful color combinations, create stunning gradients and bring your creative ideas to life.</p>
+
+                <div class="hero-actions">
+                    <button class="btn btn-primary" id="generateBtn">
+                        ✦ Generate Palette
+                    </button>
+                    <button class="btn btn-secondary" id="randomizeBtn">
+                        ↻ Randomize
+                    </button>
+                </div>
+            </div>
+
+            <div class="hero-decoration">
+                <div class="orb orb-one"></div>
+                <div class="orb orb-two"></div>
+                <div class="orb orb-three"></div>
+                <div class="decoration-label">DESIGN YOUR COLORS</div>
+            </div>
+        </section>
+
+        <!-- COLOR PALETTE -->
+        <section class="section" id="palette">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">EXPLORE COMBINATIONS</span>
+                    <h2>Color Palette</h2>
+                    <p>Generate, lock and copy your favorite colors.</p>
+                </div>
+                <span class="feature-tag">5 COLORS</span>
+            </div>
+
+            <div class="palette-grid" id="paletteGrid"></div>
+
+            <div class="palette-footer">
+                <span id="paletteStatus">Your next color story starts here.</span>
+
+                <div>
+                    <button class="text-button" id="savePaletteBtn">
+                        ♡ Save Palette
+                    </button>
+                    <button class="text-button" id="copyPaletteBtn">
+                        Copy all HEX ↗
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- GRADIENT STUDIO -->
+        <section class="section" id="gradient">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">BLEND YOUR CREATIVITY</span>
+                    <h2>Gradient Studio</h2>
+                    <p>Create beautiful gradients and copy their CSS.</p>
+                </div>
+            </div>
+
+            <div class="gradient-card">
+                <div class="gradient-preview" id="gradientPreview">
+                    <span>YOUR GRADIENT</span>
+                </div>
+
+                <div class="gradient-controls">
+                    <div class="control-group">
+                        <label for="gradientColor1">COLOR ONE</label>
+                        <input type="color" id="gradientColor1" value="#7257F5">
+                    </div>
+
+                    <div class="control-group">
+                        <label for="gradientColor2">COLOR TWO</label>
+                        <input type="color" id="gradientColor2" value="#ED6EA0">
+                    </div>
+
+                    <div class="control-group direction-control">
+                        <label for="gradientDirection">DIRECTION</label>
+                        <select id="gradientDirection">
+                            <option value="90deg">Horizontal</option>
+                            <option value="135deg" selected>Diagonal</option>
+                            <option value="180deg">Vertical</option>
+                            <option value="45deg">Diagonal Reverse</option>
+                        </select>
+                    </div>
+
+                    <button class="btn btn-primary" id="copyCssBtn">
+                        Copy CSS
+                    </button>
+                </div>
+
+                <code class="css-output" id="cssOutput"></code>
+            </div>
+        </section>
+
+        <!-- COLOR CONVERTER -->
+        <section class="section" id="tools">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">WORK WITH PRECISION</span>
+                    <h2>Color Converter</h2>
+                    <p>Convert colors between HEX, RGB and HSL.</p>
+                </div>
+            </div>
+
+            <div class="converter-card">
+                <div class="converter-picker">
+                    <label for="colorPicker">SELECT YOUR COLOR</label>
+                    <input type="color" id="colorPicker" value="#7257F5">
+                    <div class="selected-color" id="selectedColor"></div>
+                </div>
+
+                <div class="color-values">
+                    <div class="value-box">
+                        <span>HEX</span>
+                        <strong id="hexValue">#7257F5</strong>
+                        <button data-copy="hexValue">Copy</button>
+                    </div>
+
+                    <div class="value-box">
+                        <span>RGB</span>
+                        <strong id="rgbValue">114, 87, 245</strong>
+                        <button data-copy="rgbValue">Copy</button>
+                    </div>
+
+                    <div class="value-box">
+                        <span>HSL</span>
+                        <strong id="hslValue">249, 89%, 65%</strong>
+                        <button data-copy="hslValue">Copy</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <a href="#" class="brand">
+                ◈ chromify<span class="brand-dot">.</span>
+            </a>
+            <p>Built with Node.js, Express.js & JavaScript</p>
+            <p class="footer-credit">
+                Deployed on AWS EC2 · Automated with Jenkins CI/CD
+            </p>
+        </footer>
+
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+</body>
+</html>
