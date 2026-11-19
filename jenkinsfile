@@ -2,12 +2,12 @@ pipeline {
     agent any
 
     environment {
-        SERVER_IP      = 'target-server - private ip'   
-        SSH_CREDENTIAL = 'your-key'
-        REPO_URL       = 'your url'
+        SERVER_IP      = '172.31.13.45'   
+        SSH_CREDENTIAL = '12345678'
+        REPO_URL       = 'https://github.com/adityapandit5552/nodejs-app.git'
         BRANCH         = 'main'
         REMOTE_USER    = 'ubuntu'
-        REMOTE_PATH    = '/home/ubuntu/<your folder name>'
+        REMOTE_PATH    = '/home/ubuntu/node-js-app'
     }
     
     
